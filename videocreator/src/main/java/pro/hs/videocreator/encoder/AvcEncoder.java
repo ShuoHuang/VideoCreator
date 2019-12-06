@@ -48,7 +48,7 @@ public class AvcEncoder {
 
     private void init(int width, int height) {
 
-        int bitRate0 = width * height * 4;
+        int bitRate0 = 2 * 1024 * 1024;
 
         int[] formats = this.getMediaCodecList();
 
@@ -78,7 +78,7 @@ public class AvcEncoder {
         mediaFormat.setInteger(MediaFormat.KEY_COLOR_FORMAT, colorFormat);
         mediaFormat.setInteger(MediaFormat.KEY_BIT_RATE, bitRate0);
         mediaFormat.setInteger(MediaFormat.KEY_FRAME_RATE, mFrameRate);
-        mediaFormat.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, 10);
+        mediaFormat.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, 1);
 //
 //        对于planar的YUV格式，先连续存储所有像素点的Y，紧接着存储所有像素点的U，随后是所有像素点的V。
 //        对于packed的YUV格式，每个像素点的Y,U,V是连续交*存储的。
